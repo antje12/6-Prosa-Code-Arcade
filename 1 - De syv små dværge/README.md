@@ -1,4 +1,4 @@
-#Opgave
+# Opgave
 
 I denne opgave får du en række karakterer, de syv små dværge, som du skal få til at interagere med hinanden. Disse karakterer skal du få til at fortælle en ny historie, hver gang du kører dit program.
 
@@ -34,7 +34,7 @@ Så vil A reagere på B, efterfølgende vil B reagere på C og C vil reagere på
 
 Du bestemmer helt selv hvordan du vil fortælle din historie: du kan vise den frem ved brug af GUI, tekst, tegninger, emojier eller tekst i terminalen. Det er helt op til dig, vi skal bare kunne se, hvad der sker i historien.
 
-#Resultatvideo
+# Resultatvideo
 
 Du skal optage dit endelige program, hvor du kører det mindst tre gange med tre forskellige versioner af historien om de syv små dværge.
 
@@ -44,7 +44,7 @@ Upload din kode samt din resultatvideo til dit GitHub repository inden søndag d
 OBS. Hvis du ikke har linket til dit repository under tilmelding til arrangementet, så skal du sende det til tem©prosa.dk inden afleveringen.
 Koden skal være under en fri licens hvis du vil deltage i konkurrencen (Du kan vælge GPLv3 eller en af de andre på listen).
 
-#Løsningseksempel
+# Løsningseksempel
 
 Dette er et eksempel på hvordan en løsning kan se ud.
 
