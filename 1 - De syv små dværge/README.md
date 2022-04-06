@@ -37,7 +37,7 @@ Du bestemmer helt selv hvordan du vil fortælle din historie: du kan vise den fr
 
 Du skal optage dit endelige program, hvor du kører det mindst tre gange med tre forskellige versioner af historien om de syv små dværge.
 
-#Afleveringen
+# Afleveringen
 
 Upload din kode samt din resultatvideo til dit GitHub repository inden søndag d. 10. april kl. 12.
 OBS. Hvis du ikke har linket til dit repository under tilmelding til arrangementet, så skal du sende det til tem©prosa.dk inden afleveringen.
