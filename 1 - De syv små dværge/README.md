@@ -16,7 +16,7 @@ Hver gang du kører dit program, skal det udvælge 2 karakterer tilfældigt. Du 
 
 Fx kan du vælge at hvis A er sammen med B, så vil A begynde at skrige og C vil komme. Men hvis A er sammen med D, så vil A måske falde i søvn i stedet.
 
-Hver gang der bliver tilføjet en ny karakter, bliver de tilføjet i slutningen af kædereaktionen og hver karakter kan kun være til stede &I gang i kædereaktionen. 
+Hver gang der bliver tilføjet en ny karakter, bliver de tilføjet i slutningen af kædereaktionen og hver karakter kan kun være til stede én gang i kædereaktionen. 
 
 Det vil sige, at du kan have en liste af karakterer, der hedder:
 - A, B, C, D Men ikke A, B, A
