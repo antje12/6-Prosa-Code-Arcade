@@ -21,4 +21,8 @@ for (int i = 0; i < house.Room.Count; )
         current.IsLast();
         i++;
     }
+    
+    Console.WriteLine();
 }
+
+Console.ReadLine();
