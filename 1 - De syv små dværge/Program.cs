@@ -2,7 +2,7 @@
 
 var house = new House();
 
-for (int i = 0; i < house.Room.Count; i++)
+for (int i = 0; i < house.Room.Count; )
 {
     house.ReadTheRoom();
     
@@ -10,10 +10,15 @@ for (int i = 0; i < house.Room.Count; i++)
     if (i + 1 < house.Room.Count) // more dwarfs in room
     {
         var next = house.Room[i + 1];
-        current.ReactTo(next, house);
+        var result = current.ReactTo(next, house);
+        if (result)
+        {
+            i++;
+        }
     }
     else // last dwarf in room
     {
         current.IsLast();
+        i++;
     }
 }

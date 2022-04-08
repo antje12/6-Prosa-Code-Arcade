@@ -35,7 +35,7 @@ public class House
         Console.WriteLine("In the room we find: [{0}]", string.Join(", ", names));
     }
 
-    public bool CheckTheRoom(Type name)
+    public bool InTheRoom(Type name)
     {
         return Room.Any(x => x.GetType() == name);
     }
