@@ -1,28 +1,40 @@
 ﻿using Seven_Dwarfs;
 
-var house = new House();
+Console.WriteLine("----------------------------------------");
+Console.WriteLine("Press ENTER to generate a new story.");
+Console.WriteLine("Press Q to quit");
+var input = Console.ReadKey().Key;
 
-for (int i = 0; i < house.Room.Count; )
+while (input != ConsoleKey.Q)
 {
-    house.ReadTheRoom();
+    Console.WriteLine("");
+    var house = new House();
     
-    var current = house.Room[i];
-    if (i + 1 < house.Room.Count) // more dwarfs in room
+    for (int i = 0; i < house.Room.Count; )
     {
-        var next = house.Room[i + 1];
-        var result = current.ReactTo(next, house);
-        if (result)
+        house.ReadTheRoom();
+    
+        var current = house.Room[i];
+        if (i + 1 < house.Room.Count) // more dwarfs in room
         {
+            var next = house.Room[i + 1];
+            var result = current.ReactTo(next, house);
+            if (result)
+            {
+                i++;
+            }
+        }
+        else // last dwarf in room
+        {
+            current.IsLast();
             i++;
         }
-    }
-    else // last dwarf in room
-    {
-        current.IsLast();
-        i++;
+    
+        Console.WriteLine();
     }
     
-    Console.WriteLine();
+    Console.WriteLine("----------------------------------------");
+    Console.WriteLine("Press ENTER to generate a new story.");
+    Console.WriteLine("Press Q to quit");
+    input = Console.ReadKey().Key;
 }
-
-Console.ReadLine();
