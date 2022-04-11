@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Easter.Classes
+﻿namespace Easter.Classes
 {
     public class DTO
     {

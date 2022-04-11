@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Easter.Classes
+﻿namespace Easter.Classes
 {
     public class Ball
     {
@@ -63,14 +58,12 @@ namespace Easter.Classes
         public void randomizeLeftTurn()
         {
             yTurn();
-
             double t = r.Next(1, 4);
             xSpeed = (int) -t;
         }
         public void randomizeRightTurn()
         {
             yTurn();
-
             double t = r.Next(1, 4);
             xSpeed = (int) t;
         }
