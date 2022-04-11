@@ -95,7 +95,7 @@ namespace Easter.Classes
 
         private void paddleCollisions()
         {
-            if (ball.y == p1.yStart && p1.xStart <= ball.x && ball.x <= p1.xEnd)
+            if (ball.y+10 >= p1.yStart && p1.xStart <= ball.x && ball.x <= p1.xEnd)
             {
                 double middle = ((p1.xEnd - p1.xStart) / 2) + p1.xStart;
                 if (ball.x == middle)
@@ -113,7 +113,7 @@ namespace Easter.Classes
 
                 ball.speedUp();
             }
-            else if (ball.y == p2.yStart && p2.xStart <= ball.x && ball.x <= p2.xEnd)
+            else if (ball.y-10 <= p2.yStart && p2.xStart <= ball.x && ball.x <= p2.xEnd)
             {
                 double middle = ((p2.xEnd - p2.xStart) / 2) + p2.xStart;
                 if (ball.x == middle)
