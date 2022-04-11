@@ -45,11 +45,11 @@ namespace Easter.Classes
             yStart = 0;
             yEnd = 500;
         }
-        
+
         public void startGame(IHubCallerClients clients)
         {
             _clients = clients;
-            
+
             // start timer
             gameTime.Enabled = true;
 
@@ -110,6 +110,7 @@ namespace Easter.Classes
                 {
                     ball.randomizeRightTurn();
                 }
+
                 ball.speedUp();
             }
             else if (ball.y == p2.yStart && p2.xStart <= ball.x && ball.x <= p2.xEnd)
@@ -127,6 +128,7 @@ namespace Easter.Classes
                 {
                     ball.randomizeRightTurn();
                 }
+
                 ball.speedUp();
             }
         }
@@ -150,7 +152,7 @@ namespace Easter.Classes
 
             dto.player1Score = p1Score;
             dto.player2Score = p2Score;
-            
+
             var str = JsonSerializer.Serialize(dto);
             _clients.All.SendAsync("move", str);
         }

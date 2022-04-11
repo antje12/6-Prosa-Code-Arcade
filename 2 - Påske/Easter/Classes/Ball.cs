@@ -61,6 +61,7 @@
             double t = r.Next(1, 4);
             xSpeed = (int) -t;
         }
+
         public void randomizeRightTurn()
         {
             yTurn();

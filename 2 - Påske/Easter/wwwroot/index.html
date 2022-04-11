@@ -1,39 +1,43 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" href="StyleSheet.css" type="text/css" />
+    <link rel="stylesheet" href="StyleSheet.css" type="text/css"/>
     <script type="text/javascript" src="lib/signalr.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+            integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
             crossorigin="anonymous"></script>
     <script src="JavaScript.js"></script>
     <title>WebSocket Pong</title>
 </head>
 
 <body>
-    <header>
+<header>
     <h1>WebSocket Pong</h1>
-    </header>
+</header>
 
-    <main>
-        <table>
-            <tr>
-                <td>Player 1 score: <span id="player1"></span></td>
-                <td>Player 2 score: <span id="player2"></span></td>
-            </tr>
-        </table>
+<main>
+    <table>
+        <tr>
+            <td>Player 1 score: <span id="player1"></span></td>
+        </tr>
+        <tr>
+            <td>Player 2 score: <span id="player2"></span></td>
+        </tr>
+    </table>
 
     <canvas id="myCanvas" width="500" height="500">
         Your browser does not support the HTML5 canvas tag.
     </canvas>
-    
-    <br>
-    
-    <input id="open" type="button" value="Open Connection" />
-    <input id="close" type="button" value="Close Connection" />
-    </main>
 
-    <footer id="log">
-    </footer>
+    <br>
+
+    <input id="open" type="button" value="Open Connection"/>
+    <input id="close" type="button" value="Close Connection"/>
+</main>
+
+<footer id="log">
+</footer>
 </body>
 </html>

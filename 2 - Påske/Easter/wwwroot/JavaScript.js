@@ -7,41 +7,34 @@ var moveLeft;
 var myTimerVar;
 
 //timer---------------------------------------------------------------------
-function myTimer()
-{
-    if (moveRight)
-    {
+function myTimer() {
+    if (moveRight) {
         connection.invoke('move', 'right');
-    }
-    else if (moveLeft)
-    {
+    } else if (moveLeft) {
         connection.invoke('move', 'left');
     }
 }
 
 //get element---------------------------------------------------------------------
-function element(id)
-{
+function element(id) {
     return document.getElementById(id);
 }
 
 //functions---------------------------------------------------------------------
-function wireEvents()
-{
+function wireEvents() {
     // button event
-    element('close').addEventListener('click', function ()
-    {
+    element('close').addEventListener('click', function () {
         clearInterval(myTimerVar);
         connection.stop();
     });
 
     // button event
-    element('open').addEventListener('click', function ()
-    {
-        if (typeof connection == 'undefined')
-        {
+    element('open').addEventListener('click', function () {
+        if (typeof connection == 'undefined') {
             var log = element('log');
-            myTimerVar = setInterval(function () { myTimer() }, 10);
+            myTimerVar = setInterval(function () {
+                myTimer()
+            }, 10);
 
             moveRight = false;
             moveLeft = false;
@@ -49,7 +42,7 @@ function wireEvents()
             connection = new signalR.HubConnectionBuilder()
                 .withUrl('/game')
                 .build();
-            
+
             connection.on('move', function (e) {
                 var dto = JSON.parse(e); // JSON (JavaScript Object Notation)
 
@@ -102,10 +95,8 @@ function wireEvents()
     });
 
     // button down event
-    document.onkeydown = function (e)
-    {
-        switch (e.code)
-        {
+    document.onkeydown = function (e) {
+        switch (e.code) {
             case "ArrowLeft":
                 moveLeft = true;
                 break;
@@ -116,10 +107,8 @@ function wireEvents()
     };
 
     // button up event
-    document.onkeyup = function (e)
-    {
-        switch (e.code)
-        {
+    document.onkeyup = function (e) {
+        switch (e.code) {
             case "ArrowLeft":
                 moveLeft = false;
                 break;
@@ -131,7 +120,6 @@ function wireEvents()
 }
 
 //start---------------------------------------------------------------------
-window.onload = function ()
-{
+window.onload = function () {
     wireEvents();
 };

@@ -7,12 +7,12 @@ namespace Easter.Hubs;
 public class GameHub : Hub
 {
     private static Game theGame = new();
-    
+
     public override async Task OnConnectedAsync()
     {
         var feature = Context.Features.Get<IHttpConnectionFeature>();
         var client = feature.ConnectionId;
-        
+
         if (string.IsNullOrEmpty(theGame.player1))
         {
             theGame.player1 = client;
@@ -26,12 +26,12 @@ public class GameHub : Hub
 
         await base.OnConnectedAsync();
     }
-    
+
     public void Move(string message)
     {
         var feature = Context.Features.Get<IHttpConnectionFeature>();
         var client = feature.ConnectionId;
-        
+
         if (message == "right")
         {
             if (theGame.player1 == client)
@@ -55,7 +55,7 @@ public class GameHub : Hub
             }
         }
     }
-    
+
     public override async Task OnDisconnectedAsync(Exception? exception)
     {
         var feature = Context.Features.Get<IHttpConnectionFeature>();
