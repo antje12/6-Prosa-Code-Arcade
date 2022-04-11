@@ -36,22 +36,22 @@ public class GameHub : Hub
         {
             if (theGame.player1 == client)
             {
-                theGame.p1.moveRight();
+                theGame.p1.moveRight(1);
             }
             else if (theGame.player2 == client)
             {
-                theGame.p2.moveRight();
+                theGame.p2.moveRight(1);
             }
         }
         else if (message == "left")
         {
             if (theGame.player1 == client)
             {
-                theGame.p1.moveLeft();
+                theGame.p1.moveLeft(1);
             }
             else if (theGame.player2 == client)
             {
-                theGame.p2.moveLeft();
+                theGame.p2.moveLeft(1);
             }
         }
     }

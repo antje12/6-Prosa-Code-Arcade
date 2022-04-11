@@ -70,6 +70,22 @@ namespace Easter.Classes
         private void gameTime_Tick(object sender, EventArgs e)
         {
             ball.move();
+            if (string.IsNullOrEmpty(player2))
+            {
+                double middle = ((p2.xEnd - p2.xStart) / 2) + p2.xStart;
+                if (ball.x == middle)
+                {
+                }
+                else if (ball.x < middle) // AI move left
+                {
+                    p2.moveLeft(2);
+                }
+                else if (ball.x > middle) // AI move right
+                {
+                    p2.moveRight(2);
+                }
+            }
+            
             gameAreaCollisions();
             paddleCollisions();
             updateClients();

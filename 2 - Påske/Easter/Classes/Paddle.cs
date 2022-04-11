@@ -34,21 +34,21 @@
             xEnd = 300;
         }
 
-        public void moveRight()
+        public void moveRight(int speed)
         {
             if (xEnd < Game.xEnd)
             {
-                xStart++;
-                xEnd++;
+                xStart += speed;
+                xEnd += speed;
             }
         }
 
-        public void moveLeft()
+        public void moveLeft(int speed)
         {
             if (Game.xStart < xStart)
             {
-                xStart--;
-                xEnd--;
+                xStart -= speed;
+                xEnd -= speed;
             }
         }
     }
