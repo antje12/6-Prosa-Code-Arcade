@@ -1,0 +1,45 @@
+﻿body {
+    background-color: grey;
+}
+
+header {
+    text-align: center;
+    background-color: lightgrey;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 3em;
+}
+
+main {
+    background-color: lightblue;
+    text-align: center;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+table {
+    text-align: center;
+    border-collapse: separate;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#player1 {
+    color: red;
+    font-weight: bold;
+}
+
+#player2 {
+    color: blue;
+    font-weight: bold;
+}
+
+canvas {
+    background-color: white;
+    border: 1px solid black;
+}
+
+footer {
+    text-align: center;
+    background-color: grey;
+}
