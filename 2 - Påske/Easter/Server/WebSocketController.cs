@@ -1,5 +1,4 @@
 ﻿using System.Net.WebSockets;
-using System.Text;
 using Easter.Classes;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +8,7 @@ namespace Easter.Server;
 [Route("[controller]")]
 public class WebSocketController : ControllerBase
 {
-    public static Game theGame = new();
+    //public static Game theGame = new();
     
     [HttpGet("/ws")]
     public async Task Get()
@@ -18,7 +17,7 @@ public class WebSocketController : ControllerBase
         {
             using var webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
 
-            if (!theGame.clients.Any())
+            /*if (!theGame.clients.Any())
             {
                 theGame.clients.Add(webSocket);
             }
@@ -26,7 +25,7 @@ public class WebSocketController : ControllerBase
             {
                 theGame.clients.Add(webSocket);
                 theGame.startGame();
-            }
+            }*/
         }
         else
         {
@@ -46,6 +45,6 @@ public class WebSocketController : ControllerBase
         await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
         
         //clients.Remove(webSocket);
-        theGame.endGame();
+        //theGame.endGame();
     }
 }

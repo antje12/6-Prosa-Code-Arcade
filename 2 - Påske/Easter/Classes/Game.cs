@@ -1,6 +1,5 @@
-﻿using System.Net.WebSockets;
-using System.Text;
-using System.Text.Json;
+﻿using System.Text.Json;
+using Microsoft.AspNetCore.SignalR;
 using Timer = System.Timers.Timer;
 
 namespace Easter.Classes
@@ -10,7 +9,6 @@ namespace Easter.Classes
         // field
         public static int xStart;
         public static int xEnd;
-               
         public static int yStart;
         public static int yEnd;
 
@@ -27,27 +25,9 @@ namespace Easter.Classes
         private Timer gameTime;
         private int gameTimeInterval;
 
-        public List<WebSocket> clients = new();
-        
-        public void startGame()
-        {
-            // start timer
-            gameTime.Enabled = true;
-
-            // reset
-            p1Score = 0;
-            p2Score = 0;
-
-            ball.reset();
-            p1.reset();
-            p2.reset();
-        }
-
-        public void endGame()
-        {
-            // stop timer
-            gameTime.Enabled = false;
-        }
+        public string player1;
+        public string player2;
+        private IHubCallerClients _clients;
 
         public Game()
         {
@@ -62,18 +42,36 @@ namespace Easter.Classes
 
             xStart = 0;
             xEnd = 500;
-
             yStart = 0;
             yEnd = 500;
+        }
+        
+        public void startGame(IHubCallerClients clients)
+        {
+            _clients = clients;
+            
+            // start timer
+            gameTime.Enabled = true;
+
+            // reset
+            p1Score = 0;
+            p2Score = 0;
+            ball.reset();
+            p1.reset();
+            p2.reset();
+        }
+
+        public void endGame()
+        {
+            // stop timer
+            gameTime.Enabled = false;
         }
 
         private void gameTime_Tick(object sender, EventArgs e)
         {
             ball.move();
-
             gameAreaCollisions();
             paddleCollisions();
-
             updateClients();
         }
 
@@ -135,7 +133,7 @@ namespace Easter.Classes
 
         private void updateClients()
         {
-            GUI_DTO dto = new GUI_DTO();
+            var dto = new DTO();
 
             dto.ballX = ball.x;
             dto.ballY = ball.y;
@@ -154,13 +152,7 @@ namespace Easter.Classes
             dto.player2Score = p2Score;
             
             var str = JsonSerializer.Serialize(dto);
-
-            //MicrosoftWebSockets.clients.Broadcast(str);
-            foreach (var client in clients)
-            {
-                var serverMsg = Encoding.UTF8.GetBytes(str);
-                //await client.SendAsync(new ArraySegment<byte>(serverMsg, 0, serverMsg.Length), result.MessageType, result.EndOfMessage, CancellationToken.None);
-            }
+            _clients.All.SendAsync("move", str);
         }
     }
 }

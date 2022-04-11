@@ -32,7 +32,7 @@ function wireEvents()
     element('close').addEventListener('click', function ()
     {
         clearInterval(myTimerVar);
-        connection.close();
+        connection.stop();
     });
 
     // button event
@@ -46,22 +46,12 @@ function wireEvents()
             moveRight = false;
             moveLeft = false;
 
-            var connection = new signalR.HubConnectionBuilder()
+            connection = new signalR.HubConnectionBuilder()
                 .withUrl('/game')
                 .build();
             
-            connection.onerror = function (e)
-            {
-                log.innerHTML += 'Problem with connection: ' + e.message + '<br/>';
-            };
-
-            connection.onopen = function ()
-            {
-                log.innerHTML += 'Client connected! <br/>';
-            };
-            
             connection.on('move', function (e) {
-                var dto = JSON.parse(e.data.toString()); // JSON (JavaScript Object Notation)
+                var dto = JSON.parse(e); // JSON (JavaScript Object Notation)
 
                 var c = element("myCanvas");
                 var ctx = c.getContext("2d");
@@ -101,39 +91,39 @@ function wireEvents()
                 var p2Score = element("player2");
                 p2Score.innerHTML = dto.player2Score;
             })
-            
-            connection.start();
 
-            connection.onclose = function ()
-            {
+            connection.onclose(e => {
                 log.innerHTML += 'Closed connection! <br/>';
-            };
+            });
+
+            connection.start();
+            log.innerHTML += 'Opened connection! <br/>';
         }
     });
 
     // button down event
-    document.onkeydown = function ()
+    document.onkeydown = function (e)
     {
-        switch (window.keyCode)
+        switch (e.code)
         {
-            case 37:
+            case "ArrowLeft":
                 moveLeft = true;
                 break;
-            case 39:
+            case "ArrowRight":
                 moveRight = true;
                 break;
         }
     };
 
     // button up event
-    document.onkeyup = function ()
+    document.onkeyup = function (e)
     {
-        switch (window.keyCode)
+        switch (e.code)
         {
-            case 37:
+            case "ArrowLeft":
                 moveLeft = false;
                 break;
-            case 39:
+            case "ArrowRight":
                 moveRight = false;
                 break;
         }
