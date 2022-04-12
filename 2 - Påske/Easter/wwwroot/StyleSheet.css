@@ -1,17 +1,13 @@
-﻿body {
-    background-color: grey;
-}
-
-header {
+﻿header {
     text-align: center;
-    background-color: lightgrey;
+    background-color: deepskyblue;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     height: 3em;
 }
 
 main {
-    background-color: lightblue;
+    background-color: forestgreen;
     text-align: center;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
@@ -41,5 +37,4 @@ canvas {
 
 footer {
     text-align: center;
-    background-color: grey;
 }

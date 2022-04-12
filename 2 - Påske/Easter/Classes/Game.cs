@@ -73,16 +73,21 @@ namespace Easter.Classes
             if (string.IsNullOrEmpty(player2))
             {
                 double middle = ((p2.xEnd - p2.xStart) / 2) + p2.xStart;
-                if (ball.x == middle)
+                var difference = ball.x - middle;
+                switch (difference)
                 {
-                }
-                else if (ball.x < middle) // AI move left
-                {
-                    p2.moveLeft(2);
-                }
-                else if (ball.x > middle) // AI move right
-                {
-                    p2.moveRight(2);
+                    case -1:
+                        p2.moveLeft(1);
+                        break;
+                    case < -1:
+                        p2.moveLeft(2);
+                        break;
+                    case 1:
+                        p2.moveRight(1);
+                        break;
+                    case > 1:
+                        p2.moveRight(2);
+                        break;
                 }
             }
             
@@ -114,37 +119,15 @@ namespace Easter.Classes
             if (ball.y+10 >= p1.yStart && p1.xStart <= ball.x && ball.x <= p1.xEnd)
             {
                 double middle = ((p1.xEnd - p1.xStart) / 2) + p1.xStart;
-                if (ball.x == middle)
-                {
-                    ball.yTurn();
-                }
-                else if (ball.x < middle)
-                {
-                    ball.randomizeLeftTurn();
-                }
-                else
-                {
-                    ball.randomizeRightTurn();
-                }
-
+                var difference = ball.x - middle;
+                ball.yTurn(difference);
                 ball.speedUp();
             }
             else if (ball.y-10 <= p2.yStart && p2.xStart <= ball.x && ball.x <= p2.xEnd)
             {
                 double middle = ((p2.xEnd - p2.xStart) / 2) + p2.xStart;
-                if (ball.x == middle)
-                {
-                    ball.yTurn();
-                }
-                else if (ball.x < middle)
-                {
-                    ball.randomizeLeftTurn();
-                }
-                else
-                {
-                    ball.randomizeRightTurn();
-                }
-
+                var difference = ball.x - middle;
+                ball.yTurn(difference);
                 ball.speedUp();
             }
         }

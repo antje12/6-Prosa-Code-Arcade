@@ -50,23 +50,25 @@
             xSpeed = -xSpeed;
         }
 
-        public void yTurn()
+        public void yTurn(double difference)
         {
             ySpeed = -ySpeed;
+
+            if (difference < 0)
+            {
+                var tweak = Map(difference, -50, 0, -4, 0);
+                xSpeed = (int) tweak;
+            }
+            else if (0 < difference)
+            {
+                var tweak = Map(difference, 0, 50, 0, 4);
+                xSpeed = (int) tweak;
+            }
         }
 
-        public void randomizeLeftTurn()
+        private static double Map (double value, double fromSource, double toSource, double fromTarget, double toTarget)
         {
-            yTurn();
-            double t = r.Next(1, 4);
-            xSpeed = (int) -t;
-        }
-
-        public void randomizeRightTurn()
-        {
-            yTurn();
-            double t = r.Next(1, 4);
-            xSpeed = (int) t;
+            return (value - fromSource) / (toSource - fromSource) * (toTarget - fromTarget) + fromTarget;
         }
     }
 }
