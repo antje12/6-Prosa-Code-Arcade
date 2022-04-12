@@ -40,7 +40,9 @@ Du skal optage dit endelige program, hvor du kører det mindst tre gange med tre
 # Afleveringen
 
 Upload din kode samt din resultatvideo til dit GitHub repository inden søndag d. 10. april kl. 12.
+
 OBS. Hvis du ikke har linket til dit repository under tilmelding til arrangementet, så skal du sende det til tem©prosa.dk inden afleveringen.
+
 Koden skal være under en fri licens hvis du vil deltage i konkurrencen (Du kan vælge GPLv3 eller en af de andre på listen).
 
 # Løsningseksempel
