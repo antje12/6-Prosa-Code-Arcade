@@ -22,6 +22,7 @@ function element(id) {
 
 //functions---------------------------------------------------------------------
 function wireEvents() {
+    
     // button event
     element('close').addEventListener('click', function () {
         clearInterval(myTimerVar);
@@ -45,10 +46,10 @@ function wireEvents() {
 
             connection.on('move', function (e) {
                 var dto = JSON.parse(e); // JSON (JavaScript Object Notation)
-
+                
                 var c = element("myCanvas");
                 var ctx = c.getContext("2d");
-
+                
                 ctx.clearRect(0, 0, c.width, c.height);
 
                 // player 1
@@ -68,15 +69,20 @@ function wireEvents() {
                 ctx.lineCap = "round";
                 ctx.strokeStyle = "blue";
                 ctx.stroke();
-
+                
                 // ball
                 ctx.beginPath();
                 // x- and y-coordinates of the center of the circle.
                 // the radius of the circle.
                 // the arc’s starting and ending angles in radians.
                 ctx.arc(dto.ballX, dto.ballY, 5, 0, Math.PI * 2)
-                ctx.fillStyle = "green";
+                var ball = document.getElementById("ball");
+                const ballPattern = ctx.createPattern(ball, 'repeat');
+                ctx.fillStyle = ballPattern;
                 ctx.fill();
+                ctx.strokeStyle = "purple";
+                ctx.lineWidth = 1;
+                ctx.stroke();
 
                 var p1Score = element("player1");
                 p1Score.innerHTML = dto.player1Score;
