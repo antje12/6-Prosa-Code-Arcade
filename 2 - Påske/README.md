@@ -1,6 +1,3 @@
-# Prosa-Code-Arcade
-
-
 # Opgave
 I påskens ånd kalder vi på alle dine kreative evner og ideer. Din opgave er at kode noget der er inspireret af påske. Du har helt frit spil.
 
