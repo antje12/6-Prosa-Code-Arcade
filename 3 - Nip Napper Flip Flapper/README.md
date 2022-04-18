@@ -8,7 +8,7 @@ Dog skal du inkludere følgende krav:
 - Der skal være minimum 3 ’veje’ man kan tage.
 - Man skal kunne interagere med systemet så man selv vælger et af valgmulighederne hver gang.
 - Hver ’vej’ skal være minimum 2 trin Iangt.
-- Du skal inkludere ordet ’aslet’ mindst en gang i din løsning (det må godt være på dansk).
+- Du skal inkludere ordet ’aglet’ mindst en gang i din løsning (det må godt være på dansk).
 
 # Resultatvideo
 
