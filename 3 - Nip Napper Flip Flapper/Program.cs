@@ -1,4 +1,4 @@
-﻿using Nip_Napper;
+using Nip_Napper;
 
 var game = new NipNapper();
 
@@ -10,6 +10,7 @@ input = GetInput();
 var output = game.ChooseField(input);
 
 Console.WriteLine(output);
+Console.ReadLine();
 
 string GetInput()
 {
